@@ -1,69 +1,80 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using CybersecurityChatbot.Database;
 
 namespace CybersecurityChatbot.Quiz
 {
     public class QuizManager
     {
+        // List of quiz questions
         private List<QuizQuestion> _questions;
+
+        // Current question index
         private int _index;
+
+        // User score
         private int _score;
 
+        // Database helper for saving results and activity logs
         private DatabaseHelper _db = new DatabaseHelper();
 
+        // Public read-only access to score
         public int Score => _score;
 
+        // Constructor: initializes quiz
         public QuizManager()
         {
-            _questions = BuildQuestions();
-            _index = 0;
-            _score = 0;
+            _questions = BuildQuestions(); // Load questions
+            _index = 0;                   // Start at first question
+            _score = 0;                   // Reset score
         }
 
+        // Returns current question
         public QuizQuestion GetCurrentQuestion()
         {
             if (_index >= _questions.Count)
-                return null;
+                return null; // No more questions
 
             return _questions[_index];
         }
 
+        // Checks if answer is correct and moves to next question
         public bool CheckAnswer(string answer)
         {
-            bool correct =
-                _questions[_index].CorrectAnswer == answer;
+            bool correct = _questions[_index].CorrectAnswer == answer;
 
             if (correct)
-                _score++;
+                _score++; // Increase score if correct
 
-            _index++;
+            _index++; // Move to next question
 
             return correct;
         }
 
+        // Checks if quiz is finished
         public bool IsFinished()
         {
             return _index >= _questions.Count;
         }
 
+        // Restarts quiz
         public void Restart()
         {
             _index = 0;
             _score = 0;
         }
 
+        // Calculates final result and saves to database
         public string GetFinalResult()
         {
-            _db.SaveQuizResult(
-                _score,
-                _questions.Count);
+            // Save score in database
+            _db.SaveQuizResult(_score, _questions.Count);
 
+            // Log activity
             _db.AddActivity(
                 "QUIZ",
-                "Quiz completed: " +
-                _score + "/" +
-                _questions.Count);
+                "Quiz completed: " + _score + "/" + _questions.Count);
 
+            // Return performance message
             if (_score >= 12)
                 return "Excellent! You are a cybersecurity pro!";
 
@@ -73,6 +84,7 @@ namespace CybersecurityChatbot.Quiz
             return "Keep learning cybersecurity basics.";
         }
 
+        // Builds all quiz questions
         private List<QuizQuestion> BuildQuestions()
         {
             return new List<QuizQuestion>
@@ -116,7 +128,7 @@ namespace CybersecurityChatbot.Quiz
                         "Search engine"
                     },
                     CorrectAnswer = "B",
-                    Explanation = "Malware is designed to damage or steal data."
+                    Explanation = "Malware is software designed to harm or steal data."
                 },
 
                 new QuizQuestion
@@ -144,7 +156,7 @@ namespace CybersecurityChatbot.Quiz
                         "Your birthday"
                     },
                     CorrectAnswer = "C",
-                    Explanation = "Strong passwords are complex and hard to guess."
+                    Explanation = "Strong passwords use complexity to stay secure."
                 },
 
                 new QuizQuestion
@@ -153,7 +165,7 @@ namespace CybersecurityChatbot.Quiz
                     Options = new List<string>
                     {
                         "Engineering software",
-                        "Tricking people to reveal info",
+                        "Tricking people to reveal information",
                         "Coding websites",
                         "Building networks"
                     },
@@ -200,7 +212,7 @@ namespace CybersecurityChatbot.Quiz
                         "Browser extension"
                     },
                     CorrectAnswer = "B",
-                    Explanation = "Spyware collects user data secretly."
+                    Explanation = "Spyware secretly collects user data."
                 },
 
                 new QuizQuestion
