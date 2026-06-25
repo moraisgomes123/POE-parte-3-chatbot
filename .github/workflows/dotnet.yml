@@ -28,10 +28,10 @@ jobs:
       uses: NuGet/setup-nuget@v2
 
     - name: Restore Packages
-      run: nuget restore CybersecurityChatbot.sln
+      run: nuget restore CybersecurityChatbot.slnx
 
     - name: Build Solution
-      run: msbuild CybersecurityChatbot.sln /p:Configuration=Release
+      run: msbuild CybersecurityChatbot.slnx /p:Configuration=Release
 
     - name: Upload Build Artifacts
       uses: actions/upload-artifact@v4
