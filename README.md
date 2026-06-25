@@ -30,7 +30,7 @@ SQL Database Integration
 Complete GUI Integration
 
 
-# 2. Purpose of the System
+# Purpose of the System
 Cybercrime continues to increase globally, making cybersecurity awareness more important than ever.
 Many users remain vulnerable to attacks such as:
 Phishing
@@ -46,9 +46,9 @@ Teaching users cybersecurity concepts through conversations and quizzes.
 Productivity Tool
 Helping users manage cybersecurity-related tasks and reminders.
 
-# 3. Main Features
+# Main Features
 
-# 3.1 Cybersecurity Chatbot
+# Cybersecurity Chatbot
 
 The chatbot serves as the primary communication interface.
 Users can ask questions related to cybersecurity topics such as:
@@ -67,7 +67,7 @@ User-friendly communication
 Immediate cybersecurity guidance
 Educational engagement
 
-# 3.2 Natural Language Processing (NLP) Simulation
+# Natural Language Processing (NLP) Simulation
 The NLP simulation improves user interaction by detecting user intent rather than relying solely on exact keyword matching.
 Supported Intent Recognition
 User Input	Detected Intent
@@ -81,7 +81,7 @@ Better user experience
 Intelligent response generation
 Context awareness
 
-# 3.3 Cybersecurity Task Assistant
+# Cybersecurity Task Assistant
 The Task Assistant allows users to manage cybersecurity-related activities.
 Users can:
 Add tasks
@@ -104,7 +104,7 @@ Reminder Date
 Creation Date
 Status
 
-# 3.4 Reminder System
+# Reminder System
 The reminder system automatically checks task deadlines.
 When a task becomes due, the application displays a reminder notification.
 Example
@@ -119,7 +119,7 @@ Improves cybersecurity habits
 Encourages proactive security
 Helps users stay organised
 
-# 3.5 Cybersecurity Quiz Game
+# Cybersecurity Quiz Game
 The quiz system provides interactive cybersecurity training.
 The quiz contains between 15 and 20 cybersecurity questions covering:
 Phishing
@@ -150,7 +150,7 @@ Interactive learning
 User engagement
 Performance tracking
 
-# 3.6 Activity Log System
+# Activity Log System
 Every important action performed within the application is recorded.
 Recorded Activities
 Task creation
@@ -170,7 +170,7 @@ Show More functionality
 Easy navigation
 User activity monitoring
 
-# 3.7 Database Integration
+# Database Integration
 The application uses Microsoft SQL Server LocalDB for persistent data storage.
 Database Tables
 Tasks
@@ -187,7 +187,7 @@ Read	Yes
 Update	Yes
 Delete	Yes
 
-# 4. System Architecture
+# System Architecture
 The project follows a modular architecture.
 Benefits include:
 Maintainability
@@ -196,7 +196,7 @@ Reusability
 Separation of concerns
 Easier debugging
 
-# 5. Project Structure
+# Project Structure
 CybersecurityChatbot
 │
 ├── Activity
@@ -239,7 +239,7 @@ CybersecurityChatbot
 ├── App.xaml.cs
 └── README.md
 
-# 6. Technologies Used
+# Technologies Used
 Technology	Purpose
 C#	Core programming language
 WPF	Desktop user interface
@@ -249,7 +249,7 @@ Microsoft.Data.SqlClient	Database connectivity
 JSON	Chatbot knowledge base
 Visual Studio	Development environment
 
-# 7. Testing Performed
+# Testing Performed
 The application was tested using multiple scenarios.
 Chatbot Testing
 Phishing questions
@@ -276,7 +276,9 @@ Update operations
 Delete operations
 Data retrieval
 All tests completed successfully.
-8. Challenges Encountered
+
+
+# Challenges Encountered
 Several challenges were encountered during development:
 Database Connectivity
 Ensuring stable SQL Server LocalDB connections.
@@ -290,7 +292,7 @@ Activity Synchronisation
 Ensuring logs reflected real-time user actions.
 These challenges were resolved through iterative testing and debugging.
 
-# 9. Future Improvements
+# Future Improvements
 Future versions may include:
 Voice recognition
 AI-powered chatbot integration
@@ -303,7 +305,7 @@ Gamification achievements
 Export reports to PDF
 Multi-language support
 
-# 10. Conclusion
+# Conclusion
 The Cybersecurity Awareness Chatbot successfully combines cybersecurity education with productivity and interactive learning tools.
 The system demonstrates the practical application of:
 Object-Oriented Programming
@@ -317,14 +319,13 @@ The completed application provides users with a comprehensive platform for learn
 
 # 🖥️ WPF Graphical User Interface
 
-Part 2 introduces a complete WPF graphical interface replacing the console-only interface from Part 1.
+<img width="947" height="559" alt="Screenshot 2026-06-25 090109" src="https://github.com/user-attachments/assets/b212137e-7cf7-40bb-b9d4-341e2bb9c2bd" />
 
-<img width="1906" height="1092" alt="Screenshot 2026-05-28 155944" src="https://github.com/user-attachments/assets/7c6b424e-1eb7-48f9-9d45-25794d078453" />
+<img width="944" height="554" alt="Screenshot 2026-06-25 090052" src="https://github.com/user-attachments/assets/1a67f595-8561-43a5-b152-66e1d050df92" />
 
+<img width="941" height="557" alt="Screenshot 2026-06-25 090034" src="https://github.com/user-attachments/assets/fffa374e-17c3-400e-81c5-097217386424" />
 
-<img width="1917" height="1081" alt="Screenshot 2026-05-28 160045" src="https://github.com/user-attachments/assets/33c1ea2e-132b-4ab4-872e-2cbf119533ce" />
-
-
+<img width="941" height="554" alt="Screenshot 2026-06-25 090014" src="https://github.com/user-attachments/assets/8c0d03a0-9996-4356-ad17-f67630510c37" />
 
 
 # 📚 References
