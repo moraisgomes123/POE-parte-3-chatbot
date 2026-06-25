@@ -209,10 +209,9 @@
     <Compile Include="Services\ResponseService.cs" />
     <Compile Include="Services\JsonResponseLoader.cs" />
     <Compile Include="Utilities\InputValidator.cs" />
-    <Page Include="..\..\..\..\OneDrive\Imagens\MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-      <Link>MainWindow.xaml</Link>
+    <Page Include="MainWindow.xaml">
+    <Generator>MSBuild:Compile</Generator>
+    <SubType>Designer</SubType>
     </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
