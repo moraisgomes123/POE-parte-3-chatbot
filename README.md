@@ -197,47 +197,192 @@ Separation of concerns
 Easier debugging
 
 # Project Structure
-CybersecurityChatbot
+CybersecurityChatbot/
 │
-├── Activity
-│   ├── ActivityItem.cs
-│   └── ActivityLogger.cs
+├── Chatbot/                          # Core chatbot intelligence and conversation logic
+│   ├── AsciiArt.cs                  # Generates ASCII banners and visual text effects
+│   ├── ChatbotEngine.cs             # Main chatbot brain (handles input/output flow)
+│   ├── ConversationContext.cs       # Stores conversation history and context
+│   ├── FollowUpHandler.cs           # Manages follow-up question detection
+│   ├── MemoryManager.cs             # Handles short-term memory of chatbot sessions
+│   ├── SentimentAnalyzer.cs         # Detects user emotion (positive/negative/neutral)
+│   ├── UIFormatter.cs               # Formats chatbot responses for display
+│   └── VoiceGreeting.cs             # Plays greeting audio on startup
 │
-├── Audio
-│   └── Greeting.wav
+├── Models/                           # Data models used across the system
+│   └── Response.cs                  # Defines chatbot response structure
 │
-├── Chatbot
-│   ├── AsciiArt.cs
-│   ├── ChatbotEngine.cs
-│   ├── ConversationContext.cs
-│   ├── UIFormatter.cs
-│   └── VoiceGreeting.cs
+├── Services/                         # Core AI + logic services
+│   ├── FallbackService.cs           # Default response when chatbot doesn't understand input
+│   ├── IntentClassifier.cs          # Detects user intent (question, greeting, etc.)
+│   ├── JsonResponseLoader.cs        # Loads predefined responses from JSON file
+│   ├── KeywordRecognitionService.cs # Extracts important keywords from input
+│   ├── NLPService.cs                # Natural language processing (text cleaning & analysis)
+│   ├── RandomResponseService.cs     # Generates random natural responses
+│   ├── ReminderService.cs           # Handles task reminders and notifications
+│   └── ResponseService.cs           # Main service that builds final chatbot response
 │
-├── Data
-│   └── responses.json
+├── Database/                         # Task management database layer
+│   ├── DatabaseHelper.cs            # Handles database operations (CRUD)
+│   └── TaskModel.cs                 # Represents a cybersecurity task
 │
-├── Database
-│   ├── DatabaseHelper.cs
-│   └── TaskModel.cs
+├── Activity/                         # User activity tracking system
+│   ├── ActivityItem.cs              # Represents a single user action
+│   └── ActivityLogger.cs           # Logs and stores user activity history
 │
-├── Models
-│   └── Response.cs
+├── Quiz/                             # Cybersecurity learning module
+│   ├── QuizQuestion.cs              # Defines quiz question structure
+│   └── QuizManager.cs               # Manages quiz flow and scoring
 │
-├── Quiz
-│   ├── QuizManager.cs
-│   └── QuizQuestion.cs
+├── Data/                             # Static application data
+│   └── responses.json               # Predefined chatbot responses
 │
-├── Services
-│   ├── NLPService.cs
-│   ├── ReminderService.cs
-│   ├── JsonResponseLoader.cs
-│   └── ResponseService.cs
+├── Audio/                            # Audio assets
+│   └── greeting.wav                 # Startup voice greeting
 │
-├── MainWindow.xaml
-├── MainWindow.xaml.cs
-├── App.xaml
-├── App.xaml.cs
-└── README.md
+├── Utilities/                        # Helper and validation tools
+│   └── InputValidator.cs            # Validates user input for safety and correctness
+│
+├── UI/                               # WPF User Interface layer
+│   ├── MainWindow.xaml              # UI layout (chatbot, tasks, quiz, logs)
+│   └── MainWindow.xaml.cs           # UI logic and event handling
+│
+├── App.xaml                          # Application startup configuration
+├── App.xaml.cs                       # Application entry point
+│
+└── CybersecurityDB.sql               # Database schema for tasks and storage
+
+📁 Chatbot (Core AI Logic)
+AsciiArt.cs
+
+Displays stylized ASCII text (used for banners, UI decoration, and chatbot branding in the console or UI).
+
+ChatbotEngine.cs
+
+The main brain of the chatbot.
+Handles user input, processes messages, and coordinates responses using different services.
+
+ConversationContext.cs
+
+Stores the current conversation state (what the user has said, previous topics, and context memory).
+
+FollowUpHandler.cs
+
+Handles follow-up questions by detecting when a user refers to previous messages.
+
+MemoryManager.cs
+
+Stores short-term memory for the chatbot so it can “remember” user interactions during a session.
+
+SentimentAnalyzer.cs
+
+Analyzes user messages to detect emotion (positive, negative, neutral) to adjust responses.
+
+UIFormatter.cs
+
+Formats chatbot responses for display in the WPF interface (styling, spacing, readability).
+
+VoiceGreeting.cs
+
+Handles audio greeting when the application starts using the Audio/greeting.wav file.
+
+📁 Models (Data Structures)
+Response.cs
+
+Defines the structure of a chatbot response (text, category, tags, etc.).
+Used throughout the system for consistent response handling.
+
+📁 Services (AI + Logic Services)
+FallbackService.cs
+
+Provides default responses when the chatbot does not understand the user input.
+
+IntentClassifier.cs
+
+Determines the user’s intent (e.g., question, greeting, cybersecurity query).
+
+JsonResponseLoader.cs
+
+Loads chatbot responses from Data/responses.json.
+
+KeywordRecognitionService.cs
+
+Detects important keywords in user input to trigger correct responses.
+
+NLPService.cs
+
+Handles natural language processing tasks like cleaning and interpreting user input.
+
+RandomResponseService.cs
+
+Selects random responses from predefined lists to make the chatbot feel more natural.
+
+ReminderService.cs
+
+Manages reminders and scheduled notifications for tasks created by the user.
+
+ResponseService.cs
+
+Central service that selects the correct response by combining all other services.
+
+📁 Database (Task Management System)
+DatabaseHelper.cs
+
+Handles database connection, queries, and execution (CRUD operations).
+
+TaskModel.cs
+
+Represents a cybersecurity task (title, description, due date, status).
+
+📁 Activity (User Interaction Logging)
+ActivityItem.cs
+
+Represents a single user activity (message, action, timestamp).
+
+ActivityLogger.cs
+
+Stores and manages a history of user actions inside the application.
+
+📁 Quiz (Cybersecurity Learning Module)
+QuizQuestion.cs
+
+Defines a quiz question (question text, options, correct answer).
+
+QuizManager.cs
+
+Controls quiz flow, scoring, and question progression.
+
+📁 Data
+responses.json
+
+Stores predefined chatbot responses used by JsonResponseLoader.
+
+📁 Audio
+greeting.wav
+
+Audio file played when the application starts (welcome voice greeting).
+
+📁 Utilities
+InputValidator.cs
+
+Validates user input to prevent errors, empty messages, or invalid data.
+
+🖥️ UI Layer (WPF Interface)
+MainWindow.xaml
+
+Defines the graphical interface:
+
+Chatbot UI
+Task manager tab
+Quiz system
+Activity log
+MainWindow.xaml.cs
+
+Code-behind for UI interactions:
+
+Button clicks
+UI updates
+Event handling
 
 # Technologies Used
 Technology	Purpose
