@@ -2,40 +2,33 @@ name: CybersecurityChatbot CI
 
 on:
   push:
-    branches:
-      - main
-      - master
-
+    branches: [ main, master ]
   pull_request:
-    branches:
-      - main
-      - master
+    branches: [ main, master ]
 
 jobs:
   build:
-
     runs-on: windows-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Checkout Repository
-      uses: actions/checkout@v4
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
 
-    - name: Setup MSBuild
-      uses: microsoft/setup-msbuild@v2
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v2
 
-    - name: Setup NuGet
-      uses: NuGet/setup-nuget@v2
+      - name: Restore NuGet packages
+        run: nuget restore CybersecurityChatbot.slnx
 
-    - name: Restore Packages
-      run: nuget restore CybersecurityChatbot.slnx
+      - name: Build solution (Release)
+        run: msbuild CybersecurityChatbot.slnx /p:Configuration=Release /p:Platform="Any CPU" /m
 
-    - name: Build Solution
-      run: msbuild CybersecurityChatbot.slnx /p:Configuration=Release
-  
-    - name: Upload Build Artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: CybersecurityChatbot
-        path: |
-          **\bin\Release\
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: CybersecurityChatbot
+          path: |
+            **/bin/Release/
