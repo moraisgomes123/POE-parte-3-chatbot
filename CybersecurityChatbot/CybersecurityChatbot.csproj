@@ -210,26 +210,28 @@
     <Compile Include="Services\JsonResponseLoader.cs" />
     <Compile Include="Utilities\InputValidator.cs" />
     <Page Include="MainWindow.xaml">
-    <Generator>MSBuild:Compile</Generator>
-    <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Chatbot\ChatbotEngine.cs" />
-    <Compile Include="Chatbot\AsciiArt.cs" />
-    <Compile Include="Chatbot\FollowUpHandler.cs" />
-    <Compile Include="Chatbot\MemoryManager.cs" />
-    <Compile Include="Chatbot\SentimentAnalyzer.cs" />
-    <Compile Include="Chatbot\UIFormatter.cs" />
-    <Compile Include="Chatbot\ConversationContext.cs" />
-    <Compile Include="Chatbot\VoiceGreeting.cs" />
-    <Compile Include="..\..\..\..\OneDrive\Imagens\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-      <Link>MainWindow.xaml.cs</Link>
-    </Compile>
+  <Generator>MSBuild:Compile</Generator>
+  <SubType>Designer</SubType>
+</Page>
+
+<Compile Include="App.xaml.cs">
+  <DependentUpon>App.xaml</DependentUpon>
+  <SubType>Code</SubType>
+</Compile>
+
+<Compile Include="Chatbot\ChatbotEngine.cs" />
+<Compile Include="Chatbot\AsciiArt.cs" />
+<Compile Include="Chatbot\FollowUpHandler.cs" />
+<Compile Include="Chatbot\MemoryManager.cs" />
+<Compile Include="Chatbot\SentimentAnalyzer.cs" />
+<Compile Include="Chatbot\UIFormatter.cs" />
+<Compile Include="Chatbot\ConversationContext.cs" />
+<Compile Include="Chatbot\VoiceGreeting.cs" />
+
+<Compile Include="MainWindow.xaml.cs">
+  <DependentUpon>MainWindow.xaml</DependentUpon>
+  <SubType>Code</SubType>
+</Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Response.cs" />
@@ -256,10 +258,6 @@
     <Content Include="Data\responses.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include=".vs\CybersecurityChatbot.slnx\FileContentIndex\b0cb8d0d-6644-409f-b2bb-d052cba97874.vsidx" />
-    <None Include=".vs\CybersecurityChatbot.slnx\v18\DocumentLayout.json" />
-    <None Include=".vs\slnx.sqlite" />
-    <None Include=".vs\VSWorkspaceState.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
