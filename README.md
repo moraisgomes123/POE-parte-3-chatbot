@@ -1,189 +1,319 @@
 # 🛡️ Cybersecurity Awareness Chatbot – Part 2
 
-An advanced modular cybersecurity chatbot built with **C#**, **WPF**, and **.NET** that educates users on cybersecurity awareness through an intelligent and interactive graphical interface.
+Advanced Cybersecurity Education, Task Management and Quiz System
+# 1. Project Overview
+The Cybersecurity Awareness Chatbot is a desktop application developed using C# and Windows Presentation Foundation (WPF). The system was designed to educate users about cybersecurity threats, promote safe online practices, and provide an engaging user experience through multiple integrated features.
+The application combines artificial intelligence concepts, task management, cybersecurity education, quiz-based learning, database management, Natural Language Processing (NLP) simulation, reminder systems, and activity tracking into a single professional desktop solution.
+The project was developed across three stages:
 
-This enhanced version expands on Part 1 by introducing:
+# Part 1
+Basic cybersecurity chatbot with predefined responses and user interaction.
 
-- Intent recognition
-- Sentiment analysis
-- Memory management
-- Context-aware follow-up handling
-- Randomized response generation
-- Fallback response mechanisms
-- WPF graphical user interface
-
-The chatbot is designed using modern software engineering principles including modular programming, separation of concerns, SOLID principles, and layered architecture.
-
+# Part 2
+Advanced chatbot functionality including:
+Intent recognition
+Sentiment analysis
+Context awareness
+Memory management
+Response randomisation
+Enhanced graphical user interface
 
 
-# 📁 Project Structure
+# Part 3
+Advanced integrated system including:
+Cybersecurity Task Assistant
+Reminder System
+Cybersecurity Quiz Game
+NLP Simulation
+Activity Logging
+SQL Database Integration
+Complete GUI Integration
 
-CybersecurityChatbot/
+
+# 2. Purpose of the System
+Cybercrime continues to increase globally, making cybersecurity awareness more important than ever.
+Many users remain vulnerable to attacks such as:
+Phishing
+Identity theft
+Malware infections
+Ransomware attacks
+Social engineering scams
+Password attacks
+The purpose of this application is to educate users about these threats while providing interactive tools that encourage learning and safe cybersecurity practices.
+The system acts as both:
+Educational Tool
+Teaching users cybersecurity concepts through conversations and quizzes.
+Productivity Tool
+Helping users manage cybersecurity-related tasks and reminders.
+
+# 3. Main Features
+
+# 3.1 Cybersecurity Chatbot
+
+The chatbot serves as the primary communication interface.
+Users can ask questions related to cybersecurity topics such as:
+Phishing
+Malware
+Password security
+VPNs
+Firewalls
+Social engineering
+Data breaches
+Safe browsing
+The chatbot responds using predefined knowledge stored in JSON files and processed through the chatbot engine.
+Benefits
+Interactive learning
+User-friendly communication
+Immediate cybersecurity guidance
+Educational engagement
+
+# 3.2 Natural Language Processing (NLP) Simulation
+The NLP simulation improves user interaction by detecting user intent rather than relying solely on exact keyword matching.
+Supported Intent Recognition
+User Input	Detected Intent
+"I need to create a task"	ADD_TASK
+"Remind me tomorrow"	REMINDER
+"I want a quiz"	QUIZ
+"Show activities"	ACTIVITY
+Advantages
+More natural conversations
+Better user experience
+Intelligent response generation
+Context awareness
+
+# 3.3 Cybersecurity Task Assistant
+The Task Assistant allows users to manage cybersecurity-related activities.
+Users can:
+Add tasks
+View tasks
+Mark tasks as completed
+Delete tasks
+Refresh task list
+Example Tasks
+Change email password
+Enable two-factor authentication
+Update antivirus software
+Backup important files
+Review privacy settings
+Stored Information
+Each task contains:
+Task ID
+Title
+Description
+Reminder Date
+Creation Date
+Status
+
+# 3.4 Reminder System
+The reminder system automatically checks task deadlines.
+When a task becomes due, the application displays a reminder notification.
+Example
+Task:
+Enable 2FA
+Reminder Date:
+15 June 2026
+Reminder:
+"Reminder: Enable 2FA is due today."
+Benefits
+Improves cybersecurity habits
+Encourages proactive security
+Helps users stay organised
+
+# 3.5 Cybersecurity Quiz Game
+The quiz system provides interactive cybersecurity training.
+The quiz contains between 15 and 20 cybersecurity questions covering:
+Phishing
+Malware
+Firewalls
+VPNs
+Password security
+Encryption
+Social engineering
+Data breaches
+Safe browsing
+Example Question
+What is 2FA?
+A) Extra login security
+B) Antivirus software
+C) Email filter
+D) VPN service
+Quiz Features
+Multiple-choice questions
+Instant feedback
+Explanations after answers
+Final score calculation
+Database score storage
+Activity logging
+Educational Benefits
+Reinforces cybersecurity knowledge
+Interactive learning
+User engagement
+Performance tracking
+
+# 3.6 Activity Log System
+Every important action performed within the application is recorded.
+Recorded Activities
+Task creation
+Task deletion
+Task completion
+Quiz start
+Quiz completion
+Reminder notifications
+NLP detections
+Example Log Entry
+[15/06/2026 14:30]
+TASK
+Task added: Enable 2FA
+Features
+Chronological tracking
+Show More functionality
+Easy navigation
+User activity monitoring
+
+# 3.7 Database Integration
+The application uses Microsoft SQL Server LocalDB for persistent data storage.
+Database Tables
+Tasks
+Stores task information.
+ActivityLog
+Stores application activities.
+QuizResults
+Stores quiz scores and completion dates.
+CRUD Operations
+The system supports full database functionality:
+Operation	Supported
+Create	Yes
+Read	Yes
+Update	Yes
+Delete	Yes
+
+# 4. System Architecture
+The project follows a modular architecture.
+Benefits include:
+Maintainability
+Scalability
+Reusability
+Separation of concerns
+Easier debugging
+
+# 5. Project Structure
+CybersecurityChatbot
 │
-├── Audio/
-│   └── greeting.wav
+├── Activity
+│   ├── ActivityItem.cs
+│   └── ActivityLogger.cs
 │
-├── bin/
+├── Audio
+│   └── Greeting.wav
 │
-├── Chatbot/
+├── Chatbot
 │   ├── AsciiArt.cs
 │   ├── ChatbotEngine.cs
 │   ├── ConversationContext.cs
-│   ├── FollowUpHandler.cs
-│   ├── MemoryManager.cs
-│   ├── SentimentAnalyzer.cs
 │   ├── UIFormatter.cs
 │   └── VoiceGreeting.cs
 │
-├── Data/
+├── Data
 │   └── responses.json
 │
-├── Models/
+├── Database
+│   ├── DatabaseHelper.cs
+│   └── TaskModel.cs
+│
+├── Models
 │   └── Response.cs
 │
-├── obj/
+├── Quiz
+│   ├── QuizManager.cs
+│   └── QuizQuestion.cs
 │
-├── Services/
-│   ├── FallbackService.cs
-│   ├── IntentClassifier.cs
+├── Services
+│   ├── NLPService.cs
+│   ├── ReminderService.cs
 │   ├── JsonResponseLoader.cs
-│   ├── KeywordRecognitionService.cs
-│   ├── RandomResponseService.cs
 │   └── ResponseService.cs
 │
-├── Utilities/
-│   └── InputValidator.cs
-│
-├── App.config
-├── App.xaml
-├── App.xaml.cs
 ├── MainWindow.xaml
 ├── MainWindow.xaml.cs
-├── packages.config
+├── App.xaml
+├── App.xaml.cs
 └── README.md
 
+# 6. Technologies Used
+Technology	Purpose
+C#	Core programming language
+WPF	Desktop user interface
+.NET Framework	Application framework
+SQL Server LocalDB	Database storage
+Microsoft.Data.SqlClient	Database connectivity
+JSON	Chatbot knowledge base
+Visual Studio	Development environment
 
+# 7. Testing Performed
+The application was tested using multiple scenarios.
+Chatbot Testing
+Phishing questions
+Password security questions
+VPN questions
+Firewall questions
+Task Assistant Testing
+Add task
+Delete task
+Complete task
+Refresh tasks
+Quiz Testing
+Correct answers
+Incorrect answers
+Final score generation
+Quiz restart
+Activity Log Testing
+Logging functionality
+Show More functionality
+Activity retrieval
+Database Testing
+Insert operations
+Update operations
+Delete operations
+Data retrieval
+All tests completed successfully.
+8. Challenges Encountered
+Several challenges were encountered during development:
+Database Connectivity
+Ensuring stable SQL Server LocalDB connections.
+Quiz Navigation
+Managing question progression and score calculations.
+WPF Interface Design
+Creating a modern and responsive interface.
+NLP Detection
+Developing accurate intent recognition using keyword analysis.
+Activity Synchronisation
+Ensuring logs reflected real-time user actions.
+These challenges were resolved through iterative testing and debugging.
 
-# 🏗️ System Architecture
+# 9. Future Improvements
+Future versions may include:
+Voice recognition
+AI-powered chatbot integration
+Online cybersecurity news feed
+User authentication system
+Cloud database integration
+User profiles
+Progress analytics dashboard
+Gamification achievements
+Export reports to PDF
+Multi-language support
 
-The application follows a modular layered architecture to ensure:
+# 10. Conclusion
+The Cybersecurity Awareness Chatbot successfully combines cybersecurity education with productivity and interactive learning tools.
+The system demonstrates the practical application of:
+Object-Oriented Programming
+WPF Development
+Database Management
+Software Engineering Principles
+User Interface Design
+Natural Language Processing Concepts
+The completed application provides users with a comprehensive platform for learning cybersecurity concepts, managing security-related tasks, testing knowledge through quizzes, and maintaining awareness of cybersecurity best practices.
 
-- Scalability
-- Maintainability
-- Reusability
-- Separation of concerns
-- Clean code organization
-
-
-# 📂 Folder Responsibilities
-
-| Folder | Responsibility |
-|---|---|
-| **Chatbot/** | Core chatbot logic, context tracking, sentiment analysis, memory handling, UI formatting |
-| **Services/** | Business logic services including intent recognition, keyword matching, fallback handling, and response generation |
-| **Models/** | Data models used throughout the application |
-| **Utilities/** | Validation and helper functionality |
-| **Data/** | JSON-based knowledge base |
-| **Audio/** | WAV audio greeting resources |
-
-
-
-# 🚀 Features
-
-# 🧠 Intelligent Intent Recognition
-
-The chatbot can identify the user's intent using the `IntentClassifier` service.
-
-## Supported Intent Types
-
-- Greeting
-- Password Safety
-- Phishing Awareness
-- Malware Awareness
-- Cybersecurity Help
-- Exit Commands
-
-The intent recognition system improves conversational accuracy and creates more meaningful interactions.
-
-
-
-# 😊 Sentiment Analysis
-
-The chatbot analyzes the user's emotional tone using the `SentimentAnalyzer`.
-
-## Supported Sentiments
-
-- Positive
-- Neutral
-- Negative
-- Frustrated
-
-The chatbot adapts responses based on detected sentiment to create a more natural conversational experience.
-
-
-
-# 💾 Memory Management
-
-The `MemoryManager` stores conversation history and previously discussed topics.
-
-## Benefits
-
-- Maintains conversation continuity
-- Supports contextual understanding
-- Improves follow-up interactions
-- Simulates human-like memory
-
-
-
-# 🔄 Context-Aware Follow-Up Handling
-
-The chatbot can understand follow-up questions based on previous conversation context.
-
-## Example
-
-User: What is phishing?
-Bot: Explains phishing attack
-
-User: tell me more?
-Bot: Understands that it refers to phishing
-
-
-This functionality is managed using:
-
-- `ConversationContext.cs`
-- `FollowUpHandler.cs`
-
-
-# 🎲 Randomized Responses
-
-The `RandomResponseService` generates varied responses to avoid repetitive conversations.
-
-
-# 🛡️ Fallback Response System
-
-If the chatbot cannot identify the user's intent or keywords, the `FallbackService` generates safe fallback responses.
-
-## Example
-
-```text
-"I'm not sure I understand that yet, but I can help with cybersecurity topics like phishing, passwords, malware, and safe browsing."
-```
-
-# 🔐 Cybersecurity Topics Covered
-
-The chatbot provides educational information about:
-
-- Phishing
-- Malware
-- Password Security
-- Multi-Factor Authentication
-- Social Engineering
-- Safe Browsing
-- Email Security
-- Online Privacy
-- Cyber Hygiene
-- Ransomware
-- Cyber Threat Awareness
 
 # 🖥️ WPF Graphical User Interface
 
@@ -196,239 +326,15 @@ Part 2 introduces a complete WPF graphical interface replacing the console-only 
 
 
 
-# 🎨 GUI Features
-
-- Modern graphical chat interface
-- User-friendly interaction
-- Styled message display
-- Responsive layout using XAML
-- Event-driven programming architecture
-- Improved user experience
-
-# ⚙️ Technical Stack
-
-| Technology | Purpose |
-|---|---|
-| **C#** | Core programming language |
-| **.NET** | Application framework |
-| **WPF** | Desktop graphical user interface |
-| **XAML** | UI design and layout |
-| **System.Text.Json** | JSON parsing and serialization |
-| **NAudio** | Audio playback |
-| **Regular Expressions** | Input cleaning and keyword matching |
-
-
-# 📋 Class Overview
-
-| Class | Responsibility |
-|---|---|
-| **ChatbotEngine** | Main chatbot workflow and response pipeline |
-| **ConversationContext** | Stores current conversation topic |
-| **FollowUpHandler** | Handles follow-up and contextual questions |
-| **MemoryManager** | Stores conversation memory |
-| **SentimentAnalyzer** | Detects user sentiment |
-| **IntentClassifier** | Identifies user intent |
-| **KeywordRecognitionService** | Detects cybersecurity keywords |
-| **RandomResponseService** | Generates varied responses |
-| **FallbackService** | Handles unmatched input |
-| **ResponseService** | Retrieves responses from the knowledge base |
-| **JsonResponseLoader** | Loads and parses `responses.json` |
-| **VoiceGreeting** | Plays startup greeting audio |
-| **UIFormatter** | Handles chatbot message formatting |
-| **InputValidator** | Cleans and validates user input |
-| **Response** | Data model for chatbot responses |
-
-
-# 📄 Example Knowledge Base Structure
-
-The chatbot stores responses in a JSON file located in:
-
-```text
-/Data/responses.json
-```
-
-## Example
-
-```json
-[
-  {
-    "Keyword": "Phishing",
-    "Reply": "Phishing is a cyberattack where attackers impersonate trusted organizations to steal sensitive information."
-  },
-  {
-    "Keyword": "Password",
-    "Reply": "Use strong passwords with a mix of letters, numbers, and symbols."
-  }
-]
-```
-
-# 🧪 Software Engineering Principles Applied
-
-## ✔ SOLID Principles
-
-The project follows SOLID design principles to improve:
-
-- Maintainability
-- Extensibility
-- Readability
-- Scalability
-
----
-
-## ✔ Separation of Concerns
-
-Each class has a clearly defined responsibility.
-
----
-
-## ✔ Modular Design
-
-The chatbot is divided into reusable independent modules.
-
----
-
-## ✔ Layered Architecture
-
-The application separates:
-
-- UI Layer
-- Business Logic Layer
-- Data Layer
-- Utility Layer
-
----
-
-## ✔ Event-Driven Programming
-
-The WPF interface uses event-driven interaction patterns.
-
----
-
-# 🛠️ Technologies Used
-
-- C#
-- .NET
-- WPF
-- XAML
-- JSON
-- NAudio
-- Regular Expressions
-- Object-Oriented Programming (OOP)
-
----
-
-# ▶️ Getting Started
-
-# 1️⃣ Prerequisites
-
-Install the following:
-
-- Visual Studio 2022 or later
-- .NET SDK
-- .NET Desktop Development workload
-
----
-
-# 2️⃣ Clone the Repository
-
-```bash
-git clone https://github.com/your-username/CybersecurityChatbot.git
-```
-
----
-
-# 3️⃣ Open the Solution
-
-Open the `.sln` file in Visual Studio.
-
----
-
-# 4️⃣ Restore NuGet Packages
-
-Install required dependencies.
-
-Example:
-
-```bash
-Install-Package NAudio
-```
-
----
-
-# 5️⃣ Ensure Required Files Exist
-
-Verify that the following files exist:
-
-```text
-/Audio/greeting.wav
-/Data/responses.json
-```
-
----
-
-# 6️⃣ Run the Application
-
-Press:
-
-```text
-F5
-```
-
-or select:
-
-```text
-Start Debugging
-```
-
----
-
-# 💬 Example Chat Flow
-
-```text
-User: Hello
-Bot: Hello! How can I help you stay safe online today?
-
-User: What is phishing?
-Bot: Phishing is a cyberattack where attackers impersonate trusted organizations to steal sensitive information.
-
-User: another tip
-Bot: Avoid clicking suspicious links and always verify the sender before responding.
-```
-
----
-
-# 📈 Improvements from Part 1
-
-| Part 1 | Part 2 |
-|---|---|
-| Console-based application | WPF graphical application |
-| Basic keyword matching | Intelligent intent recognition |
-| Static responses | Dynamic randomized responses |
-| Simple context tracking | Advanced memory management |
-| Basic chatbot flow | Context-aware conversation handling |
-| Limited interaction | Sentiment-aware responses |
-| Basic architecture | Modular layered architecture |
-
----
-
-# 🔮 Future Enhancements
-
-Potential future improvements include:
-
-- AI/NLP integration
-- Machine learning-based response prediction
-- Database integration
-- User authentication system
-- Voice recognition
-- Real-time cybersecurity news feed
-- Dark mode support
-- Cloud deployment
-- OpenAI API integration
-- Multi-language support
-
----
 
 # 📚 References
+
+Microsoft, 2025. Microsoft Learn: WPF Documentation. Available at: https://learn.microsoft.com/ [Accessed 25 June 2026].
+Microsoft, 2025. Microsoft.Data.SqlClient Documentation. Available at: https://learn.microsoft.com/sql/connect/ado-net/ [Accessed 25 June 2026].
+Microsoft, 2025. SQL Server LocalDB Documentation. Available at: https://learn.microsoft.com/sql/database-engine/configure-windows/sql-server-express-localdb [Accessed 25 June 2026].
+Oracle, 2025. Object-Oriented Programming Concepts. Available at: https://docs.oracle.com/ [Accessed 25 June 2026].
+National Cyber Security Centre (NCSC), 2025. Cyber Security Guidance. Available at: https://www.ncsc.gov.uk/ [Accessed 25 June 2026].
+
 
 Codecademy. (2026) *Codecademy*. Available at: https://www.codecademy.com (Accessed: 20 May 2026).
 
@@ -445,6 +351,7 @@ Microsoft Learn. (2026) *Microsoft Learn*. Available at: https://learn.microsoft
 Stack Overflow. (2026) *Stack Overflow*. Available at: https://stackoverflow.com (Accessed: 24 May 2026).
 
 W3Schools. (2026) *W3Schools Online Web Tutorials*. Available at: https://www.w3schools.com (Accessed: 23 May 2026).
+
 
 ## Cybersecurity References
 
