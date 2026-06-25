@@ -32,7 +32,7 @@ jobs:
 
     - name: Build Solution
       run: msbuild CybersecurityChatbot.slnx /p:Configuration=Release
-
+  
     - name: Upload Build Artifacts
       uses: actions/upload-artifact@v4
       with:
